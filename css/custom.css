@@ -1,0 +1,116 @@
+body{
+	font-family:calibri;
+}
+.row-stat-value{
+font-family: Calibri;
+font-size: 18px;
+font-weight: bold;
+color:black;
+}
+.row-stat{
+	text-align:center;
+	border:none;
+}
+.second-row{
+	font-size: 18px;
+	color:#00CA00;
+}
+.row-stat:after,
+.row-stat:before {
+	content: '';
+	position: absolute;
+	display: block;
+	height: 0px;
+	bottom: 0px;
+	left: 0px;
+	right: 0px;
+	border: none;
+	border-top: 0;
+}
+.row-stat {
+	margin-bottom:0px;
+}
+.content{
+	margin-top: 0px;
+}
+
+.nav-pills > li > a {
+	border-radius: 0px;
+	background-color: #cfcfcf;
+	color:black;
+}
+.nav-pills > li > a:hover {
+    background-color: #C1E977;
+}
+.nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {
+	background-color: #C1E977;
+	color:black;
+}
+.param_tab
+{
+    background-color: #FEB76A !important;
+}
+.next_prev{
+    background-color: #FE6F05 !important;
+	font-size:20px;
+	font-weight: bold;
+}
+.footer_txt{
+	font-size:18px;
+}
+.footer_div{
+	background: black;
+    padding-top: 10px;
+    padding-bottom: 10px;
+	color:white;
+	
+}
+#chartdiv,
+#mainChartDiv {
+  width: 100%;
+  height: 420px;
+  max-width: 100%;
+}
+.see_graph_btn{
+	display: none;
+}
+.hide_graph_btn{
+	display: none;
+}
+
+/* ============================================
+   RESPONSIVE UTILITIES & AUDIT FIXES
+   ============================================ */
+
+/* 1. Responsive Table Wrapper */
+.table-responsive-wrapper,
+.table-responsive {
+  width: 100% !important;
+  overflow-x: auto !important;
+  -webkit-overflow-scrolling: touch !important;
+  margin-bottom: 16px;
+}
+
+/* 2. Touch Target Size Compliance (WCAG 2.1) */
+@media (max-width: 768px) {
+  .btn,
+  .md3-btn,
+  .md3-step-tab,
+  .task-item__btn {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  .modal-dialog {
+    width: calc(100vw - 20px) !important;
+    max-width: 100% !important;
+    margin: 10px auto !important;
+  }
+}
+
+/* 3. Fluid Parameter Strip & Card Grids */
+@media (max-width: 480px) {
+  .md3-param-strip {
+    grid-template-columns: 1fr !important;
+  }
+}

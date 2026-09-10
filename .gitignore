@@ -1,0 +1,66 @@
+.env
+.env.*
+!.env.example
+.ftpquota
+.codex
+
+# Local/runtime files
+*.log
+*.pid
+*.bak
+*.backup
+*.dump
+*.sqlite
+*.sqlite3
+*.db
+storage/*
+!storage/.htaccess
+uploads/
+logs/
+tmp/
+temp/
+.cache/
+coverage/
+
+# Database exports and legacy configuration copies may contain credentials/data
+database/oilsteps.sql
+database/ab1147_oilsteps.sql
+database/oilstepsdata/
+includes/1db.class.php
+includes/current.db.class.php
+includes/local.db.class.php
+includes/db.class_*.php
+includes/1project_nav.php
+includes/back_navbar.php
+includes/backproject_nav.php
+
+# One-off diagnostics, local repair scripts and stale design artifacts
+file.php
+file.html
+fix_actions.php
+Formulas.txt
+formula.txt
+img/*_old.*
+img/*_bk.*
+pure_chart*
+database/cashflow1.png
+
+# Bundled library examples are not used by the application
+mpdf/examples/
+
+# Private keys and certificates
+*.pem
+*.key
+*.p12
+*.pfx
+
+# Editors and operating systems
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Office temporary files
+~$*
+database/~$*
+database/oilstepsdata/~$*
