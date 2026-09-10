@@ -326,7 +326,6 @@ function increment_count()
       $("#CUMUL_PROD").html(res[1]);
       $("#ACTUAL_REVENUE").html(res[2]);
       $("#ACTUAL_FLOWRATE").html(res[3]);
-      $("#CASH_FLOW").html(res[4]);
       $("#CUMULATIVE_CASH_FLOW").html(res[5]);
     }
   });	

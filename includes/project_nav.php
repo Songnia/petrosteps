@@ -92,9 +92,8 @@
     <span class="md3-param-value" id="ACTUAL_REVENUE">$<?php echo number_format((float)$_SESSION['project']['Project_Actual_Revenue'], 0); ?></span>
   </div>
   <div class="md3-param-item">
-    <span class="md3-param-label">CASH FLOW / CUMULATIVE</span>
-    <span class="md3-param-value" id="CASH_FLOW">$<?php echo number_format($project_cashflow, 0); ?></span>
-    <span class="md3-param-subvalue">Cumulative: <strong id="CUMULATIVE_CASH_FLOW">$<?php echo number_format($project_cumulative_cashflow, 0); ?></strong></span>
+    <span class="md3-param-label">CUMUL - CASH FLOW</span>
+    <span class="md3-param-value" id="CUMULATIVE_CASH_FLOW">$<?php echo number_format($project_cumulative_cashflow, 0); ?></span>
   </div>
 </div>
 <?php

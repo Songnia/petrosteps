@@ -1154,7 +1154,6 @@ class DB extends PDO
 					`Project_Block` = '',
 					`Project_Field` = '',
 					`Project_Spending` = 0,
-					`Project_Opex` = 0,
 					`Project_License_Cost` = 0,
 					`Project_Survey_Cost` = 0,
 					`Project_Interpretation_cost` = 0,

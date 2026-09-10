@@ -61,12 +61,10 @@ if (!function_exists('project_calculate_phase_costs')) {
 
 		$development_cost = $dev_well_cost + $facility_cost;
 
-		// 3. Production Cost (Steps 6 to 8: OPEX, Decommissioning, Abandonment)
+		// 3. Production Cost (Steps 6 to 8: Decommissioning and Abandonment)
 		$decom_cost = isset($project['Project_Decomissionning_Cost']) ? (float)$project['Project_Decomissionning_Cost'] : 0;
 		$abandon_cost = isset($project['Project_Abandonment_Cost']) ? (float)$project['Project_Abandonment_Cost'] : 0;
-		$opex_cost = isset($project['Project_Opex']) ? (float)$project['Project_Opex'] : 0;
-
-		$production_cost = $decom_cost + $abandon_cost + $opex_cost;
+		$production_cost = $decom_cost + $abandon_cost;
 
 		$total_spending = isset($project['Project_Spending']) ? (float)$project['Project_Spending'] : 0;
 		$sum_costs = $exploration_cost + $development_cost + $production_cost;

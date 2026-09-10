@@ -77,7 +77,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && @$_POST['action'] == 'login'){
 
     <!-- Image plein panneau -->
     <div class="login-left__img-placeholder">
-      <img src="img/avatars/brand-image.png" alt="Oilfield simulation">
+      <img src="img/avatars/brand-image.jpg" alt="Oilfield simulation">
     </div>
 
     <!-- Texte en overlay absolu sur le bas de l'image -->

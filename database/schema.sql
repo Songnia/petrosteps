@@ -115,7 +115,6 @@ CREATE TABLE `tbl_project` (
   `Project_Block` varchar(100) NOT NULL,
   `Project_Field` varchar(100) NOT NULL,
   `Project_Spending` float NOT NULL,
-  `Project_Opex` decimal(20,2) NOT NULL DEFAULT '0.00',
   `Project_License_Cost` float NOT NULL,
   `Project_Survey_Cost` float NOT NULL,
   `Project_Interpretation_cost` float NOT NULL,

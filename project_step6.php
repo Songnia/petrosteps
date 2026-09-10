@@ -48,7 +48,6 @@ Upon execution this task
 		//$_SESSION['project']['Project_year'] = 0;
 		$_SESSION['project']['Cumul_Production'] = 0;
 		$_SESSION['project']['Project_Cumulative_Flow'] = 0;
-		$_SESSION['project']['Project_Opex'] = 0;
 		$_SESSION['project']['Project_Actual_Revenue'] = $_SESSION['project']['Cumul_Production']*$parameters['Oil_Price']['value'];
 		//$_SESSION['project']['Production_year'] = 1;
 		//$_SESSION['project']['Project_year'] = $_SESSION['project']['Project_year']+1;
@@ -70,7 +69,7 @@ Upon execution this task
 
 	//$_SESSION['project']['Cumul_Production'] = $Actual_Flowrate*$_SESSION['project']['Production_Year'];
 	//exit;
-		$update_str = " Project_Total_Flowrate = '$Actual_Flowrate', Project_Opex = 0, Project_year = ".$_SESSION['project']['Project_year'].", Production_year = ".$_SESSION['project']['Production_year'].", Project_Task62_Status = 'Done', tasks_completed = 62, steps_completed = 6";
+		$update_str = " Project_Total_Flowrate = '$Actual_Flowrate', Project_year = ".$_SESSION['project']['Project_year'].", Production_year = ".$_SESSION['project']['Production_year'].", Project_Task62_Status = 'Done', tasks_completed = 62, steps_completed = 6";
 
 		$updated = $db->update_project($update_str, $_SESSION['project']['project_id']);
 		//$step_updated = $db->add_project_step($_SESSION['project']['project_id'], $_SESSION['project']['steps_completed'], $_SESSION['project']['Project_Actual_Revenue'], $_SESSION['project']['Project_Spending']);
@@ -279,7 +278,6 @@ Upon execution this task
       $("#CUMUL_PROD").html(res[1]);
       $("#ACTUAL_REVENUE").html(res[2]);
       $("#ACTUAL_FLOWRATE").html(res[3]);
-      $("#CASH_FLOW").html(res[4]);
       $("#CUMULATIVE_CASH_FLOW").html(res[5]);
       window.location.reload();
     }

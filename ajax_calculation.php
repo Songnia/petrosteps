@@ -18,20 +18,6 @@
 		}
 		return array($current_cashflow, $cumulative_cashflow);
 	}
-	function apply_annual_production_opex($annual_production, $parameters) {
-		$opex_per_barrel = isset($parameters['Production_Opex_Per_Barrel']['value'])
-			? max(0, (float)$parameters['Production_Opex_Per_Barrel']['value'])
-			: 0;
-		$annual_opex = round(max(0, (float)$annual_production) * $opex_per_barrel, 2);
-
-		if (!isset($_SESSION['project']['Project_Opex'])) {
-			$_SESSION['project']['Project_Opex'] = 0;
-		}
-		$_SESSION['project']['Project_Opex'] += $annual_opex;
-		$_SESSION['project']['Project_Spending'] += $annual_opex;
-
-		return $annual_opex;
-	}
 		/*	1.	Project parameter Project_Prod_Year is set to  0 , Cumul_Production=0-----
 		2.	Task61_Status set to done.----
 		3.	Turn Wells images to green (Refer to PPT V8 slide 12).-----
@@ -67,7 +53,6 @@ if(@$_POST['action'] == 'chartshowhide') {
 		$_SESSION['project']['Project_year'] = $_SESSION['project']['Project_year']+1;
 		$annual_production = $_SESSION['project']['Project_Total_Flowrate'] * 365;
 		$_SESSION['project']['Cumul_Production'] += $annual_production;
-		apply_annual_production_opex($annual_production, $parameters);
 		$_SESSION['project']['Project_Actual_Revenue'] = $_SESSION['project']['Cumul_Production']*$parameters['Oil_Price']['value'];
 		$step_should_be_saved = true;
 	}
@@ -83,7 +68,7 @@ if(@$_POST['action'] == 'chartshowhide') {
 		);
 	}
 
-	$update_str = "Project_Total_Flowrate = '".$_SESSION['project']['Project_Total_Flowrate']."', Production_year = '".$_SESSION['project']['Production_year']."', Project_year = '".$_SESSION['project']['Project_year']."', Project_Cumulative_Flow = ".$_SESSION['project']['Cumul_Production'].", Project_Actual_Revenue = '".$_SESSION['project']['Project_Actual_Revenue']."', Project_Opex = '".$_SESSION['project']['Project_Opex']."', Project_Spending = '".$_SESSION['project']['Project_Spending']."' ";
+	$update_str = "Project_Total_Flowrate = '".$_SESSION['project']['Project_Total_Flowrate']."', Production_year = '".$_SESSION['project']['Production_year']."', Project_year = '".$_SESSION['project']['Project_year']."', Project_Cumulative_Flow = ".$_SESSION['project']['Cumul_Production'].", Project_Actual_Revenue = '".$_SESSION['project']['Project_Actual_Revenue']."', Project_Spending = '".$_SESSION['project']['Project_Spending']."' ";
 	$updated = $db->update_project($update_str, $_SESSION['project']['project_id']);
 	//$step_updated = $db->add_project_step($_SESSION['project']['project_id'], $_SESSION['project']['Project_year'], $_SESSION['project']['Project_Actual_Revenue'], $_SESSION['project']['Project_Spending']);
 	list($current_cashflow, $cumulative_cashflow) = get_cashflow_kpis($db, $_SESSION['project']['project_id'], $parameters['Oil_Price']['value']);
@@ -107,7 +92,6 @@ if(@$_POST['action'] == 'chartshowhide') {
 		$_SESSION['project']['Project_year'] = $_SESSION['project']['Project_year']+1;
 		$annual_production = $_SESSION['project']['Project_Total_Flowrate'] * 365;
 		$_SESSION['project']['Cumul_Production'] += $annual_production;
-		apply_annual_production_opex($annual_production, $parameters);
 		$_SESSION['project']['Project_Actual_Revenue'] = $_SESSION['project']['Cumul_Production']*$parameters['Oil_Price']['value'];
 		$step_should_be_saved = true;
 	}
@@ -125,7 +109,7 @@ if(@$_POST['action'] == 'chartshowhide') {
 			$_SESSION['project']['Project_Spending']
 		);
 	}
-		$update_str = "Project_Total_Flowrate = '".$_SESSION['project']['Project_Total_Flowrate']."', Production_year = '".$_SESSION['project']['Production_year']."', Project_year = '".$_SESSION['project']['Project_year']."', Project_Cumulative_Flow = ".$_SESSION['project']['Cumul_Production'].", Project_Actual_Revenue = '".$_SESSION['project']['Project_Actual_Revenue']."', Project_Opex = '".$_SESSION['project']['Project_Opex']."', Project_Spending = '".$_SESSION['project']['Project_Spending']."' ";
+		$update_str = "Project_Total_Flowrate = '".$_SESSION['project']['Project_Total_Flowrate']."', Production_year = '".$_SESSION['project']['Production_year']."', Project_year = '".$_SESSION['project']['Project_year']."', Project_Cumulative_Flow = ".$_SESSION['project']['Cumul_Production'].", Project_Actual_Revenue = '".$_SESSION['project']['Project_Actual_Revenue']."', Project_Spending = '".$_SESSION['project']['Project_Spending']."' ";
 		$updated = $db->update_project($update_str, $_SESSION['project']['project_id']);
 		//$step_updated = $db->add_project_step($_SESSION['project']['project_id'], $_SESSION['project']['Project_year'], $_SESSION['project']['Project_Actual_Revenue'], $_SESSION['project']['Project_Spending']);
 	list($current_cashflow, $cumulative_cashflow) = get_cashflow_kpis($db, $_SESSION['project']['project_id'], $parameters['Oil_Price']['value']);
